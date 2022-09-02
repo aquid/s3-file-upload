@@ -1,0 +1,24 @@
+{
+  "name": "s3-upload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.32.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "file-type": "^18.0.0",
+    "multiparty": "^4.2.3"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^18.7.14"
+  }
+}
