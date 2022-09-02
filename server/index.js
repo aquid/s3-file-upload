@@ -26,18 +26,6 @@ app.get('*', (req, res) => {
 });
 
 
-const uploadFile = (buffer, name, type) => {
-    const params = {
-        ACL: 'public-read',
-        Body: buffer,
-        Bucket: process.env.S3_BUCKET,
-        ContentType: type.mime,
-        Key: `${name}.${type.ext}`,
-    };
-    return s3.upload(params).promise();
-};
-
-
 app.post('/file-upload', (request, response) => {
     const form = new multiparty.Form();
     form.parse(request, async (error, fields, files) => {
@@ -63,7 +51,6 @@ app.post('/file-upload', (request, response) => {
             return response.status(500).send(err);
         }
     });
-    // response.status(200).send('file uploaded');
 });
 
 const PORT = process.env.PORT || 9000;
